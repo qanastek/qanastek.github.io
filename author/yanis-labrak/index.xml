@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yanis Labrak</title>
+    <link>https://qanastek.github.io/author/yanis-labrak/</link>
+      <atom:link href="https://qanastek.github.io/author/yanis-labrak/index.xml" rel="self" type="application/rss+xml" />
+    <description>Yanis Labrak</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Yanis Labrak</copyright><lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://qanastek.github.io/author/yanis-labrak/avatar_hufcae8aa8ccef1838aad64c8361295599_15838_270x270_fill_q75_lanczos_center.jpg</url>
+      <title>Yanis Labrak</title>
+      <link>https://qanastek.github.io/author/yanis-labrak/</link>
+    </image>
+    
+    <item>
+      <title>MLOps - Industrialize your computer vision models using Docker and REST API</title>
+      <link>https://qanastek.github.io/post/mlops/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://qanastek.github.io/post/mlops/</guid>
+      <description>&lt;p&gt;The goal is to deploy a Docker image featuring a REST API built with FastAPI in order to exploit a computer vision model responsible for classifying input photographs into one of seven forms of skin cancer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Train a Custom Vision Transformer (ViT) Image Classifier to Help Endoscopists in Less than 5 min</title>
+      <link>https://qanastek.github.io/post/vit_endoscopists/</link>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://qanastek.github.io/post/vit_endoscopists/</guid>
+      <description>&lt;p&gt;The goal is to create a fast, flexible and user-friendly toolkit that can be used to easily develop state-of-the-art computer vision technologies, including systems for Image Classification, Semantic Segmentation, Object Detection, Image Generation, Denoising and much more.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multi-label Document Classification for COVID-19 Literature using Keyword Based Enhancement and Few-Shot Learning</title>
+      <link>https://qanastek.github.io/publication/biocreative_7/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://qanastek.github.io/publication/biocreative_7/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
