@@ -99,11 +99,16 @@
   </style>
   <!-- <link rel="prefetch" > -->
   <!-- Custom Modernization Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
   <style type="text/css">
     /* Typography */
     body, p, li, a { font-family: 'Inter', sans-serif !important; }
-    h1, h2, h3, h4, h5, h6, .section-heading h1, .portrait-title h2 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 700; }
+    h1, h2, h3, h4, h5, h6, .section-heading h1, .portrait-title h2 { 
+      font-family: 'Lora', serif !important; 
+      font-weight: 600; 
+      letter-spacing: -0.01em;
+      color: #111827;
+    }
     
     /* Hero Section Enhancement */
     #about {
@@ -195,6 +200,31 @@
       transform: translateY(-3px) scale(1.1);
       color: #1565c0 !important;
     }
+
+    /* SDialog Demo Window Styles */
+    .demo-window { background: #1e293b; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; font-family: 'Inter', sans-serif; color: #f8fafc; border: 1px solid #334155; }
+    .demo-top-bar { background: #0f172a; padding: 10px 15px; display: flex; align-items: center; border-bottom: 1px solid #334155; }
+    .demo-top-bar .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; display: inline-block; }
+    .demo-title { margin-left: 10px; font-family: monospace; color: #94a3b8; font-size: 0.85rem; }
+    .demo-content { padding: 20px; height: 480px; overflow-y: auto; font-size: 0.9rem; scroll-behavior: smooth; }
+    .demo-step { display: none; opacity: 0; transition: opacity 0.5s ease-in; }
+    .demo-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+    .demo-card { background: #334155; padding: 10px 15px; border-radius: 8px; border: 1px solid #475569; margin-bottom: 8px; }
+    .demo-gap-3 { gap: 1rem; }
+    .chat-msg { padding: 10px 15px; border-radius: 12px; margin-bottom: 10px; max-width: 85%; line-height: 1.4; display: none; opacity: 0; transition: opacity 0.5s ease-in; }
+    .doc-msg { background: #2563eb; color: white; border-bottom-left-radius: 2px; }
+    .pat-msg { background: #475569; color: white; border-bottom-right-radius: 2px; margin-left: auto; }
+    .waveform { display: flex; gap: 3px; justify-content: center; align-items: flex-end; height: 20px; }
+    .waveform span { display: block; width: 4px; background: #38bdf8; animation: wave 1s infinite ease-in-out; border-radius: 2px; }
+    .waveform span:nth-child(2) { animation-delay: 0.2s; }
+    .waveform span:nth-child(3) { animation-delay: 0.4s; }
+    .waveform span:nth-child(4) { animation-delay: 0.1s; }
+    .waveform span:nth-child(5) { animation-delay: 0.3s; }
+    @keyframes wave { 0%, 100% { height: 4px; } 50% { height: 20px; } }
+    .ner { padding: 2px 4px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; }
+    .ner.cond { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid #ef4444; }
+    .ner.vitals { background: rgba(34, 197, 94, 0.2); color: #86efac; border: 1px solid #22c55e; }
+    .ner.med { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; border: 1px solid #a855f7; }
   </style>
 </head>
 <body  class="page-wrapper" data-wc-page-id="3976528693a0108357f4928017600865">
@@ -411,8 +441,76 @@
       </div>
     </section>
 
+    <!-- SDIALOG DEMO SECTION -->
+    <section id="demo" class="home-section wg-blank">
+      <div class="container">
+        <div class="row">
+          <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+            <h1 class="mb-0">Research Demo</h1>
+            <p class="mt-2 text-muted" style="font-size: 0.95rem;">Interactive demonstration of End-to-End synthetic clinical data generation using <a href="https://github.com/idiap/sdialog" target="_blank" rel="noopener"><b>SDialog</b></a>.</p>
+            <button id="start-demo-btn" class="btn btn-outline-primary mt-3" style="font-weight: 600;">Run Pipeline <i class="fa fa-play ml-2"></i></button>
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="demo-window">
+              <div class="demo-top-bar">
+                <span class="dot bg-danger"></span><span class="dot bg-warning"></span><span class="dot bg-success"></span>
+                <span class="demo-title">sdialog-orchestrator ~ bash</span>
+              </div>
+              <div class="demo-content" id="demo-content">
+                <div id="demo-init" class="demo-text" style="font-family: monospace; color: #94a3b8;">> Waiting for pipeline initialization...</div>
+                
+                <!-- Step 1: Personas -->
+                <div id="demo-step-1" class="demo-step mt-3">
+                  <div class="demo-badge bg-info text-white mb-2">1. Persona & Environment Definition</div>
+                  <div class="d-flex demo-gap-3 mb-2">
+                    <div class="demo-card flex-fill"><b>Agent A (Doctor)</b><br><small>Role: Cardiologist<br>Tone: Empathetic</small></div>
+                    <div class="demo-card flex-fill"><b>Agent B (Patient)</b><br><small>Profile: 55yo Male<br>State: Post-medication</small></div>
+                  </div>
+                  <div class="demo-card"><b>Environment:</b> <small>Cardiology Consultation Room, Follow-up visit.</small></div>
+                </div>
 
+                <!-- Step 2: Dialog -->
+                <div id="demo-step-2" class="demo-step mt-4">
+                  <div class="demo-badge bg-primary text-white mb-2">2. Multi-Agent Turn-by-Turn Generation</div>
+                  <div class="chat-container mt-2">
+                    <div class="chat-msg doc-msg" id="msg-1"><b>Dr. Smith:</b> Good morning. How have you been feeling on the new Lisinopril dosage?</div>
+                    <div class="chat-msg pat-msg" id="msg-2"><b>Patient:</b> The dizziness stopped, but my blood pressure is still 135/85.</div>
+                    <div class="chat-msg doc-msg" id="msg-3"><b>Dr. Smith:</b> I see. Let's increase it to 20mg daily. Have you noticed any dry cough?</div>
+                    <div class="chat-msg pat-msg" id="msg-4"><b>Patient:</b> No cough, but I do feel a bit fatigued in the afternoons.</div>
+                  </div>
+                </div>
 
+                <!-- Step 3: Evaluation & Audio -->
+                <div id="demo-step-3" class="demo-step mt-4">
+                  <div class="demo-badge bg-warning text-dark mb-2">3. Evaluation & Audio Synthesis</div>
+                  <div class="d-flex align-items-center demo-gap-3">
+                    <div class="demo-card flex-fill"><b>Metrics:</b><br><small style="font-family: monospace;">Coherence: 0.98 | Med-Accuracy: 0.95</small></div>
+                    <div class="demo-card flex-fill text-center">
+                      <i class="fa fa-volume-up mb-1" style="color: #94a3b8;"></i><br>
+                      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 4: Downstream Tasks -->
+                <div id="demo-step-4" class="demo-step mt-4">
+                  <div class="demo-badge bg-success text-white mb-2">4. Downstream Tasks (NER, SLU, Sum)</div>
+                  <div class="demo-card">
+                    <b>NER:</b> <br> <i>BP is <span class="ner vitals">135/85</span>. Increase <span class="ner med">Lisinopril</span> to <span class="ner med">20mg</span>. No <span class="ner cond">cough</span>, mild <span class="ner cond">fatigue</span>.</i><br>
+                    <div class="mt-2 mb-2 border-bottom" style="border-color: #475569 !important;"></div>
+                    <b>SLU:</b> <br> <code style="color: #e2e8f0; background: #0f172a; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 4px;">[Intent: Update_Prescription] [Slot: Med=Lisinopril, Dose=20mg]</code><br>
+                    <code style="color: #e2e8f0; background: #0f172a; padding: 2px 6px; border-radius: 4px; display: inline-block;">[Intent: Report_Symptom] [Slot: Symptom=Fatigue]</code><br>
+                    <div class="mt-2 mb-2 border-bottom" style="border-color: #475569 !important;"></div>
+                    <b>Summary:</b> <br> <i>BP remains elevated (135/85). Lisinopril increased to 20mg. Patient denies cough but reports afternoon fatigue.</i>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="experience" class="home-section wg-experience  ">
       <div class="home-section-bg ">
@@ -1342,6 +1440,95 @@
         }
         setTimeout(type, 1000); // Initial delay
       }
+
+      // 3. SDialog Pipeline Animation
+      const startBtn = document.getElementById('start-demo-btn');
+      if(startBtn) {
+        // Ensure initial state is hidden
+        const initText = document.getElementById('demo-init');
+        const step1 = document.getElementById('demo-step-1');
+        const step2 = document.getElementById('demo-step-2');
+        const msg1 = document.getElementById('msg-1');
+        const msg2 = document.getElementById('msg-2');
+        const msg3 = document.getElementById('msg-3');
+        const msg4 = document.getElementById('msg-4');
+        const step3 = document.getElementById('demo-step-3');
+        const step4 = document.getElementById('demo-step-4');
+        const contentBox = document.getElementById('demo-content');
+
+        [step1, step2, msg1, msg2, msg3, msg4, step3, step4].forEach(el => {
+          el.style.display = 'none';
+          el.style.opacity = '0';
+        });
+
+        startBtn.addEventListener('click', async function(e) {
+          e.preventDefault(); // Prevent any default button behavior
+          
+          if (startBtn.disabled) return;
+          
+          startBtn.disabled = true;
+          startBtn.innerHTML = 'Running Pipeline <i class="fa fa-spinner fa-spin ml-2"></i>';
+
+          // Reset all steps to hidden before starting
+          [step1, step2, msg1, msg2, msg3, msg4, step3, step4].forEach(el => {
+            el.style.display = 'none';
+            el.style.opacity = '0';
+          });
+
+          const delay = ms => new Promise(res => setTimeout(res, ms));
+          const scrollToBottom = () => {
+            contentBox.scrollTo({ top: contentBox.scrollHeight, behavior: 'smooth' });
+          };
+          
+          const showElement = async (el) => {
+            el.style.display = 'block';
+            // small delay to allow display:block to apply before changing opacity for transition
+            await delay(50);
+            el.style.opacity = '1';
+            scrollToBottom();
+          }
+
+          initText.style.color = '#94a3b8';
+          initText.style.fontWeight = 'normal';
+          initText.textContent = "> Initializing SDialog Orchestrator...";
+          await delay(800);
+          
+          initText.textContent = "> Loading Personas and Environment...";
+          await showElement(step1);
+          await delay(1800);
+
+          initText.textContent = "> Generating Multi-Agent Dialog...";
+          await showElement(step2);
+          await delay(800);
+
+          await showElement(msg1);
+          await delay(1500);
+
+          await showElement(msg2);
+          await delay(1500);
+
+          await showElement(msg3);
+          await delay(1500);
+
+          await showElement(msg4);
+          await delay(1500);
+
+          initText.textContent = "> Running Automated Evaluation & TTS Audio Synthesis...";
+          await showElement(step3);
+          await delay(2000);
+
+          initText.textContent = "> Extracting Downstream Tasks (NER, SLU, Summarization)...";
+          await showElement(step4);
+          
+          await delay(1000);
+          initText.textContent = "> Pipeline Complete.";
+          initText.style.color = '#4ade80'; // Bright green color for success
+          initText.style.fontWeight = 'bold';
+          startBtn.innerHTML = 'Run Again <i class="fa fa-refresh ml-2"></i>';
+          startBtn.disabled = false;
+        });
+      }
+
     });
   </script>
 </body>
