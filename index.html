@@ -225,6 +225,112 @@
     .ner.cond { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid #ef4444; }
     .ner.vitals { background: rgba(34, 197, 94, 0.2); color: #86efac; border: 1px solid #22c55e; }
     .ner.med { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; border: 1px solid #a855f7; }
+
+    /* GRPO Training Demo */
+    .demo-bridge {
+      border-top: 1px solid rgba(21, 101, 192, 0.15);
+      padding-top: 2.5rem;
+      margin-top: 1rem;
+    }
+    .demo-bridge-arrow {
+      color: #1565c0;
+      font-size: 1.5rem;
+      opacity: 0.6;
+    }
+    .grpo-ref {
+      font-family: monospace;
+      color: #86efac;
+      background: #0f172a;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    .grpo-rollout {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #334155;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .grpo-rollout.in { opacity: 1; transform: none; }
+    .grpo-rollout.win {
+      border-color: rgba(74, 222, 128, 0.65);
+      box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.2);
+    }
+    .grpo-rollout.lose {
+      border-color: rgba(248, 113, 113, 0.55);
+      box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.15);
+    }
+    .grpo-rollout .idx {
+      font-family: monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #94a3b8;
+      width: 28px;
+      flex-shrink: 0;
+    }
+    .grpo-rollout .hyp {
+      flex: 1;
+      font-size: 0.85rem;
+      line-height: 1.35;
+      min-width: 0;
+    }
+    .grpo-rollout .hyp .tag {
+      display: block;
+      color: #fca5a5;
+      font-size: 0.68rem;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+    .grpo-rollout .score {
+      font-family: monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: 72px;
+      text-align: right;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.1s;
+    }
+    .grpo-rollout.in .score { opacity: 1; }
+    .grpo-rollout .adv {
+      font-family: monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: 88px;
+      text-align: right;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.25s;
+    }
+    .grpo-rollout.in .adv { opacity: 1; }
+    .grpo-rollout .adv.up { color: #4ade80; }
+    .grpo-rollout .adv.dn { color: #f87171; }
+    .grpo-rollout .adv.md { color: #94a3b8; }
+    .grpo-rollout .typing-dots span {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: 0 2px;
+      background: #38bdf8;
+      border-radius: 50%;
+      animation: grpoDot 1.2s infinite ease-in-out;
+    }
+    .grpo-rollout .typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .grpo-rollout .typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes grpoDot {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    .grpo-summary {
+      transition: opacity 0.5s ease;
+    }
   </style>
 </head>
 <body  class="page-wrapper" data-wc-page-id="3976528693a0108357f4928017600865">
@@ -524,6 +630,88 @@
                     <code style="color: #e2e8f0; background: #0f172a; padding: 2px 6px; border-radius: 4px; display: inline-block;">[Intent: Report_Symptom] [Slot: Symptom=Fatigue]</code><br>
                     <div class="mt-2 mb-2 border-bottom" style="border-color: #475569 !important;"></div>
                     <b>Summary:</b> <br> <i>BP remains elevated (135/85). Lisinopril increased to 20mg. Patient denies cough but reports afternoon fatigue.</i>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bridge: from synthetic data generation to training -->
+        <div class="row demo-bridge">
+          <div class="col-12 text-center mb-4">
+            <div class="demo-bridge-arrow mb-2"><i class="fa fa-long-arrow-down"></i></div>
+            <p class="text-muted mb-0" style="font-size: 0.95rem; max-width: 720px; margin: 0 auto;">
+              Synthetic dialogues become <b>synthetic speech</b> for training — but supervised fine-tuning overfits TTS artifacts.
+              <a href="https://better-call-grpo.github.io" target="_blank" rel="noopener"><b>GRPO</b></a> rewards whole transcripts instead of forcing token-by-token imitation.
+            </p>
+          </div>
+        </div>
+
+        <!-- GRPO Training Demo -->
+        <div class="row">
+          <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+            <h2 class="mb-0" style="font-size: 1.75rem;">How to Train Using Synthetic Data?</h2>
+            <p class="mt-2 text-muted" style="font-size: 0.95rem;">
+              One GRPO step on synthetic speech from the pipeline above — sample rollouts, score with <code style="font-size: 0.8rem;">r = 1 − WER</code>, reinforce the best hypothesis.
+              From our paper <a href="https://better-call-grpo.github.io" target="_blank" rel="noopener"><i>When Synthetic Speech Is All You Have: Better Call GRPO</i></a>.
+            </p>
+
+            <div class="mt-3 p-3 text-left" style="background: rgba(217, 119, 87, 0.06); border-left: 4px solid #d97757; border-radius: 0 8px 8px 0; width: 100%;">
+              <h4 style="font-size: 1rem; margin-bottom: 8px; color: #c15f3c; font-family: 'Inter', sans-serif !important; font-weight: 600;">Why GRPO over SFT?</h4>
+              <p class="text-muted mb-0" style="font-size: 0.85rem; line-height: 1.5;">
+                Token-level SFT must copy every reference token — even where synthetic audio is unreliable — which triggers insertion chains and hallucinated continuations.
+                GRPO compares <b>G = 4</b> sampled transcripts, assigns group-relative advantages, and learns <i>when to stop</i> without a critic network.
+              </p>
+            </div>
+
+            <button id="start-grpo-btn" class="btn btn-outline-primary mt-4" style="font-weight: 600; border-color: #d97757; color: #c15f3c;">Run GRPO Step <i class="fa fa-play ml-2"></i></button>
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="demo-window">
+              <div class="demo-top-bar">
+                <span class="dot bg-danger"></span><span class="dot bg-warning"></span><span class="dot bg-success"></span>
+                <span class="demo-title">grpo-trainer ~ bash</span>
+              </div>
+              <div class="demo-content" id="grpo-content" style="height: 520px;">
+                <div id="grpo-init" class="demo-text" style="font-family: monospace; color: #94a3b8;">> Waiting for GRPO step...</div>
+
+                <div id="grpo-step-1" class="demo-step mt-3">
+                  <div class="demo-badge mb-2" style="background: #d97757; color: white;">1. Synthetic Speech Input</div>
+                  <div class="demo-card">
+                    <div class="d-flex align-items-center demo-gap-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      </svg>
+                      <div class="waveform flex-fill"><span></span><span></span><span></span><span></span><span></span></div>
+                      <small style="color: #94a3b8;">TTS · SDialog output</small>
+                    </div>
+                  </div>
+                  <div class="grpo-ref mt-2">reference y* : "increase lisinopril to twenty milligrams daily"</div>
+                </div>
+
+                <div id="grpo-step-2" class="demo-step mt-4">
+                  <div class="demo-badge bg-primary text-white mb-2">2. Sample G = 4 Rollouts</div>
+                  <div id="grpo-rollouts"></div>
+                </div>
+
+                <div id="grpo-step-3" class="demo-step mt-4">
+                  <div class="demo-badge bg-warning text-dark mb-2">3. Score &amp; Compute Advantages</div>
+                  <div class="demo-card" id="grpo-stats" style="font-family: monospace; font-size: 0.8rem; line-height: 1.7;">
+                    <span style="color: #38bdf8;">[Reward]</span> r<sub>i</sub> = 1 − WER(o<sub>i</sub>, y*)<br>
+                    <span style="color: #f472b6;">[Advantage]</span> A<sub>i</sub> = (r<sub>i</sub> − mean) / (std + ε)
+                  </div>
+                </div>
+
+                <div id="grpo-step-4" class="demo-step mt-4 grpo-summary">
+                  <div class="demo-badge bg-success text-white mb-2">4. Policy Update — Reinforce Best Rollout</div>
+                  <div class="demo-card">
+                    <b id="grpo-winner-text" style="color: #4ade80;"></b><br>
+                    <small style="color: #94a3b8; display: block; margin-top: 6px;">
+                      Above-mean hypotheses get positive advantage (reinforced); hallucinated continuations get strongly negative advantage (suppressed). KL to the SFT checkpoint keeps decoding stable.
+                    </small>
                   </div>
                 </div>
 
@@ -1579,6 +1767,157 @@
           initText.style.fontWeight = 'bold';
           startBtn.innerHTML = 'Run Again <i class="fa fa-refresh ml-2"></i>';
           startBtn.disabled = false;
+        });
+      }
+
+      // 4. GRPO Training Step Animation
+      const grpoBtn = document.getElementById('start-grpo-btn');
+      if (grpoBtn) {
+        const grpoInit = document.getElementById('grpo-init');
+        const grpoContent = document.getElementById('grpo-content');
+        const grpoStep1 = document.getElementById('grpo-step-1');
+        const grpoStep2 = document.getElementById('grpo-step-2');
+        const grpoStep3 = document.getElementById('grpo-step-3');
+        const grpoStep4 = document.getElementById('grpo-step-4');
+        const rolloutsEl = document.getElementById('grpo-rollouts');
+        const winnerText = document.getElementById('grpo-winner-text');
+
+        const REF = "increase lisinopril to twenty milligrams daily";
+        const N = REF.split(' ').length;
+        const POOL = [
+          { t: REF, e: 0 },
+          { t: "increase lisinopril to twenty milligram daily", e: 1 },
+          { t: "increase lisinopril to twenty mg daily", e: 2 },
+          { t: "increase lisinopril to twenty milligrams", e: 2 },
+          { t: "increase lisinopril to to twenty milligrams daily daily", e: 3, tag: 'insertion burst' },
+          { t: "increase lisinopril to twenty milligrams daily please call back tomorrow", e: 5, tag: 'hallucinated continuation' },
+          { t: "increase lisinopril twenty milligrams daily", e: 2 },
+          { t: "increase the lisinopril dose to twenty milligrams daily", e: 3 }
+        ];
+
+        function pickGroup() {
+          const shuffled = POOL.map((h, i) => i).sort(() => Math.random() - 0.5);
+          for (let tries = 0; tries < 40; tries++) {
+            const idx = shuffled.slice(0, 4);
+            const group = idx.map(i => POOL[i]);
+            const rs = group.map(h => 1 - h.e / N);
+            if (Math.max(...rs) >= 0.85 && Math.min(...rs) <= 0.55) return group;
+          }
+          return [POOL[0], POOL[1], POOL[4], POOL[5]];
+        }
+
+        function resetGrpo() {
+          [grpoStep1, grpoStep2, grpoStep3, grpoStep4].forEach(el => {
+            el.style.display = 'none';
+            el.style.opacity = '0';
+          });
+          rolloutsEl.innerHTML = '';
+        }
+
+        grpoBtn.addEventListener('click', async function(e) {
+          e.preventDefault();
+          if (grpoBtn.disabled) return;
+
+          grpoBtn.disabled = true;
+          grpoBtn.innerHTML = 'Sampling Rollouts <i class="fa fa-spinner fa-spin ml-2"></i>';
+          resetGrpo();
+
+          const delay = ms => new Promise(res => setTimeout(res, ms));
+          const scrollToBottom = () => {
+            grpoContent.scrollTo({ top: grpoContent.scrollHeight, behavior: 'smooth' });
+          };
+          const showElement = async (el) => {
+            el.style.display = 'block';
+            await delay(50);
+            el.style.opacity = '1';
+            scrollToBottom();
+          };
+
+          grpoInit.style.color = '#94a3b8';
+          grpoInit.style.fontWeight = 'normal';
+          grpoInit.textContent = '> Loading synthetic speech from SDialog pipeline...';
+          await delay(700);
+
+          await showElement(grpoStep1);
+          await delay(1200);
+
+          grpoInit.textContent = '> Sampling G = 4 rollouts (τ = 0.8)...';
+          await showElement(grpoStep2);
+
+          const group = pickGroup();
+          const rs = group.map(h => 1 - h.e / N);
+          const mean = rs.reduce((a, b) => a + b, 0) / rs.length;
+          const sd = Math.sqrt(rs.reduce((a, b) => a + (b - mean) * (b - mean), 0) / rs.length) + 1e-4;
+          const cards = [];
+
+          for (let i = 0; i < group.length; i++) {
+            const card = document.createElement('div');
+            card.className = 'grpo-rollout';
+            card.innerHTML =
+              '<div class="idx">o' + (i + 1) + '</div>' +
+              '<div class="hyp"><span class="hyp-text"><span class="typing-dots"><span></span><span></span><span></span></span></span></div>' +
+              '<div class="score"></div>' +
+              '<div class="adv"></div>';
+            rolloutsEl.appendChild(card);
+            cards.push(card);
+            scrollToBottom();
+            await delay(400);
+
+            const hypEl = card.querySelector('.hyp-text');
+            const words = group[i].t.split(' ');
+            hypEl.textContent = '';
+            for (let w = 0; w < words.length; w++) {
+              hypEl.textContent += (w ? ' ' : '') + words[w];
+              await delay(55 + Math.random() * 35);
+            }
+            if (group[i].tag) {
+              hypEl.innerHTML += '<span class="tag">⚠ ' + group[i].tag + '</span>';
+            }
+            await delay(350);
+          }
+
+          grpoInit.textContent = '> Scoring rollouts against reference (r = 1 − WER)...';
+          await showElement(grpoStep3);
+          await delay(600);
+
+          let bestIdx = 0;
+          let worstIdx = 0;
+          cards.forEach((card, i) => {
+            const r = rs[i];
+            const A = (r - mean) / sd;
+            if (r > rs[bestIdx]) bestIdx = i;
+            if (r < rs[worstIdx]) worstIdx = i;
+
+            const scoreEl = card.querySelector('.score');
+            const advEl = card.querySelector('.adv');
+            const cls = A > 0.15 ? 'up' : A < -0.15 ? 'dn' : 'md';
+            const arrow = A > 0.15 ? '▲' : A < -0.15 ? '▼' : '·';
+
+            scoreEl.style.color = r >= 0.85 ? '#4ade80' : r >= 0.55 ? '#94a3b8' : '#f87171';
+            scoreEl.textContent = 'r=' + r.toFixed(2);
+            advEl.className = 'adv ' + cls;
+            advEl.textContent = arrow + ' A=' + (A >= 0 ? '+' : '−') + Math.abs(A).toFixed(2);
+          });
+
+          for (let i = 0; i < cards.length; i++) {
+            cards[i].classList.add('in');
+            if (i === bestIdx) cards[i].classList.add('win');
+            if (i === worstIdx && worstIdx !== bestIdx) cards[i].classList.add('lose');
+            scrollToBottom();
+            await delay(280);
+          }
+
+          await delay(800);
+          grpoInit.textContent = '> Applying group-relative policy update...';
+          winnerText.textContent = '✓ Best rollout o' + (bestIdx + 1) + ' reinforced: "' + group[bestIdx].t + '"';
+          await showElement(grpoStep4);
+
+          await delay(800);
+          grpoInit.textContent = '> GRPO step complete. WER −45% rel. vs. SFT on synthetic speech.';
+          grpoInit.style.color = '#4ade80';
+          grpoInit.style.fontWeight = 'bold';
+          grpoBtn.innerHTML = 'Sample New Group <i class="fa fa-refresh ml-2"></i>';
+          grpoBtn.disabled = false;
         });
       }
 
