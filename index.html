@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Wowchemy 5.4.0 for Hugo">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
   <meta name="author" content="Yanis Labrak">
   <meta name="description" content="Yanis Labrak is a Postdoctoral Researcher at Idiap Research Institute (Switzerland) specializing in Speech and NLP. Researching Multimodal LLMs, Speech Recognition, and End-to-End systems for Healthcare.">
   <meta name="keywords" content="Yanis Labrak, Postdoctoral Researcher, Idiap Research Institute, Speech Recognition, NLP, Natural Language Processing, Multimodal LLMs, Machine Learning, AI, Healthcare AI, Avignon University">
   <link rel="alternate" hreflang="en-us" href="https://qanastek.github.io/">
-  <meta name="theme-color" content="#1565c0">
+  <meta name="theme-color" content="#e8eefa">
   <link rel="stylesheet" href="./wowchemy.512574799414e7d36471486881070b0f.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
-  <script src="./netlify-identity-widget.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+  <script src="./netlify-identity-widget.js" defer></script>
   <link rel="alternate" href="https://qanastek.github.io/index.xml" type="application/rss+xml" title="Yanis Labrak | Postdoctoral Researcher in Speech & NLP">
   <link rel="manifest" href="https://qanastek.github.io/manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg">
@@ -99,7 +100,7 @@
   </style>
   <!-- <link rel="prefetch" > -->
   <!-- Custom Modernization Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style type="text/css">
     /* Typography */
     body, p, li, a { font-family: 'Inter', sans-serif !important; }
@@ -332,6 +333,241 @@
       transition: opacity 0.5s ease;
     }
   </style>
+
+  <!-- ===================== PIXEL ART THEME ===================== -->
+  <style type="text/css">
+    :root {
+      --px-ink: #1b1b2f;
+      --px-paper: #e8eefa;
+      --px-paper-2: #d9e3f7;
+      --px-white: #ffffff;
+      --px-blue: #2c5fd6;
+      --px-blue-dk: #1a3a8f;
+      --px-orange: #e8743b;
+      --px-green: #3fbf5f;
+      --px-red: #e04848;
+      --px-yellow: #f6c445;
+      --px-shadow: 4px 4px 0 var(--px-ink);
+      --px-shadow-lg: 6px 6px 0 var(--px-ink);
+    }
+
+    /* ---------- Base ---------- */
+    html { image-rendering: pixelated; }
+    body {
+      background-color: var(--px-paper) !important;
+      background-image:
+        linear-gradient(rgba(44,95,214,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44,95,214,0.06) 1px, transparent 1px) !important;
+      background-size: 8px 8px !important;
+      color: var(--px-ink);
+    }
+    body, p, li, a, span, small, div, td {
+      font-family: 'Inter', sans-serif !important;
+    }
+    code, pre, .demo-title, .grpo-ref, .grpo-rollout .idx, .grpo-rollout .score, .grpo-rollout .adv,
+    #demo-init, #grpo-init, #grpo-stats, #grpo-stats *, .demo-card small[style*="monospace"], .demo-card small[style*="monospace"] * {
+      font-family: 'VT323', monospace !important;
+      font-size: 1.05rem !important;
+      letter-spacing: 0.02em;
+    }
+    img { image-rendering: pixelated; }
+    a { color: var(--px-blue); }
+    a:hover { color: var(--px-orange); text-decoration: none; }
+    ::selection { background: var(--px-yellow); color: var(--px-ink); }
+
+    /* ---------- Headings ---------- */
+    h1, h2, h3, h4, h5, h6, .section-heading h1, .portrait-title h2 {
+      font-family: 'Press Start 2P', monospace !important;
+      font-weight: 400 !important;
+      letter-spacing: 0 !important;
+      line-height: 1.5 !important;
+      color: var(--px-ink) !important;
+      text-shadow: none !important;
+    }
+    .section-heading h1 { font-size: 1.1rem !important; }
+    .section-heading h1::before { content: "\25B6\00a0"; color: var(--px-orange); }
+    .section-heading h2 { font-size: 0.9rem !important; }
+    .article-style h2 { font-size: 0.8rem !important; margin-top: 1.8rem; }
+    .article-style h3 { font-size: 0.7rem !important; margin-top: 1.4rem; }
+    .portrait-title h2 { font-size: 1rem !important; margin-top: 1.2rem; }
+    .portrait-title h3 { font-family: 'Inter', sans-serif !important; font-size: 1rem !important; font-weight: 500 !important; line-height: 1.6 !important; }
+    .portrait-title h3 a span { color: var(--px-blue); }
+    .section-subheading { font-weight: 600; }
+    #demo h4 { font-family: 'Inter', sans-serif !important; font-size: 1rem !important; font-weight: 600 !important; line-height: 1.4 !important; }
+
+    /* ---------- Sections ---------- */
+    .home-section { background: transparent !important; border-bottom: 4px dashed rgba(27,27,47,0.15); }
+    #about { background: transparent !important; }
+    #about::before {
+      /* twinkling pixel stars instead of the soft pulse */
+      animation: none !important;
+      top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+      background:
+        radial-gradient(var(--px-yellow) 0 2px, transparent 2px) 6% 18% / 4px 4px no-repeat,
+        radial-gradient(var(--px-blue) 0 2px, transparent 2px) 92% 12% / 4px 4px no-repeat,
+        radial-gradient(var(--px-orange) 0 2px, transparent 2px) 85% 78% / 4px 4px no-repeat,
+        radial-gradient(var(--px-green) 0 2px, transparent 2px) 3% 85% / 4px 4px no-repeat !important;
+      opacity: 0.9;
+    }
+
+    /* ---------- Avatar ---------- */
+    .avatar-circle, .pixel-avatar {
+      border-radius: 0 !important;
+      border: 6px solid var(--px-ink) !important;
+      box-shadow: var(--px-shadow-lg), inset 0 0 0 4px var(--px-white) !important;
+      background: var(--px-white);
+      image-rendering: auto !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      max-width: 100%;
+      height: auto;
+    }
+    .pixel-avatar { width: 270px; aspect-ratio: 1 / 1; display: block; margin: 0 auto; }
+    .avatar-circle:hover, .pixel-avatar:hover { transform: translate(-3px, -3px) !important; box-shadow: 9px 9px 0 var(--px-ink) !important; }
+
+    /* ---------- Cards ---------- */
+    .card, .pub-list-item, .stream-item, .view-card {
+      border: 4px solid var(--px-ink) !important;
+      border-radius: 0 !important;
+      background: var(--px-white) !important;
+      backdrop-filter: none !important;
+      box-shadow: var(--px-shadow-lg) !important;
+      transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    }
+    .card:hover, .pub-list-item:hover, .stream-item:hover, .view-card:hover {
+      transform: translate(-3px, -3px) !important;
+      box-shadow: 9px 9px 0 var(--px-blue) !important;
+      border-color: var(--px-ink) !important;
+    }
+    .card-body { padding: 0.5rem; }
+    .pub-list-item > i { font-style: normal; font-weight: 600; }
+    .img-hover-zoom, .article-banner { border: 3px solid var(--px-ink); border-radius: 0 !important; }
+    .stream-item img { border: 3px solid var(--px-ink); }
+
+    /* Experience timeline: square nodes & dashed rail */
+    .exp-fill, .badge-pill { border-radius: 0 !important; background: var(--px-orange) !important; border: 3px solid var(--px-ink) !important; width: 18px; height: 18px; padding: 0 !important; }
+    .experience .border-right { border-right: 4px dashed var(--px-ink) !important; }
+    .experience .card img { border: none !important; box-shadow: none !important; image-rendering: auto !important; }
+
+    /* ---------- Buttons / tags ---------- */
+    .btn, .btn-outline-primary, .btn-outline-info, .btn-outline-success {
+      border-radius: 0 !important;
+      border: 3px solid var(--px-ink) !important;
+      background: var(--px-white) !important;
+      color: var(--px-ink) !important;
+      box-shadow: 3px 3px 0 var(--px-ink) !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      line-height: 1.4 !important;
+      padding: 0.35rem 0.7rem !important;
+      margin: 0 6px 8px 0;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease !important;
+    }
+    .btn b, .btn span { font-weight: 600 !important; }
+    .btn-outline-primary { background: #dfe8ff !important; }
+    .btn-outline-success { background: #d9f5df !important; }
+    .btn-outline-info:hover, .btn-outline-primary:hover, .btn-outline-success:hover, .btn:hover {
+      transform: translate(-2px, -2px) !important;
+      box-shadow: 5px 5px 0 var(--px-ink) !important;
+      background: var(--px-yellow) !important;
+    }
+    .btn:active { transform: translate(3px, 3px) !important; box-shadow: none !important; }
+    #start-demo-btn, #start-grpo-btn { font-size: 0.9rem !important; padding: 0.6rem 1rem !important; }
+    #start-demo-btn { background: var(--px-blue) !important; color: #fff !important; }
+    #start-grpo-btn { background: var(--px-orange) !important; color: #fff !important; border-color: var(--px-ink) !important; }
+    #start-demo-btn:hover, #start-grpo-btn:hover { background: var(--px-yellow) !important; color: var(--px-ink) !important; }
+    .article-categories .badge { border-radius: 0; border: 2px solid var(--px-ink); background: var(--px-paper-2); font-weight: 500; }
+
+    /* ---------- Typing cursor: chunky block ---------- */
+    .typing-cursor { width: 0.6em !important; height: 0.9em !important; background: var(--px-orange) !important; animation: blink 1s steps(1) infinite !important; }
+
+    /* ---------- Social icons ---------- */
+    .network-icon li a { transition: transform 0.15s ease !important; }
+    .network-icon li a:hover { transform: translateY(-4px) !important; color: var(--px-orange) !important; }
+
+    /* ---------- HuggingFace thumbs & connect table ---------- */
+    .article-style table img { border: 3px solid var(--px-ink); box-shadow: 3px 3px 0 var(--px-ink); transition: transform .15s ease, box-shadow .15s ease; background: var(--px-white); }
+    .article-style table a:hover img { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--px-blue); }
+    .article-style table img[width="50px"] { border: none; box-shadow: none; background: transparent; }
+
+    /* ---------- Interests / Education ---------- */
+    .ul-interests li::marker { content: "\25A0  "; color: var(--px-orange); }
+
+    /* ---------- Scroll reveal: stepped ---------- */
+    .reveal { transition: opacity 0.35s ease-out, transform 0.35s ease-out !important; transform: translateY(12px); }
+
+    /* ---------- Demo info boxes (inline-styled) ---------- */
+    #demo .section-heading > div[style] {
+      border-radius: 0 !important;
+      border: 3px solid var(--px-ink) !important;
+      border-left-width: 10px !important;
+      background: var(--px-white) !important;
+      box-shadow: var(--px-shadow);
+    }
+    #demo .section-heading > div[style] h4 { color: var(--px-blue-dk) !important; }
+    #demo code { background: var(--px-paper-2); padding: 0 4px; border: 2px solid var(--px-ink); color: var(--px-ink); }
+
+    /* ---------- Terminal windows: retro console ---------- */
+    .demo-window {
+      border-radius: 0 !important;
+      border: 4px solid var(--px-ink) !important;
+      box-shadow: 8px 8px 0 var(--px-ink) !important;
+      background: #10142a !important;
+      position: relative;
+    }
+    .demo-window::after {
+      /* scanlines */
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0 1px, transparent 1px 3px);
+    }
+    .demo-top-bar { background: #2a2f55 !important; border-bottom: 4px solid var(--px-ink) !important; }
+    .demo-top-bar .dot { border-radius: 0 !important; border: 2px solid var(--px-ink); width: 14px; height: 14px; }
+    .demo-title { color: #c9d1ff !important; }
+    .demo-content { background: #10142a; }
+    .demo-content::-webkit-scrollbar { width: 12px; }
+    .demo-content::-webkit-scrollbar-track { background: #1d2246; }
+    .demo-content::-webkit-scrollbar-thumb { background: var(--px-orange); border: 3px solid #1d2246; }
+    .demo-badge {
+      border-radius: 0 !important;
+      padding: 5px 8px !important;
+      border: 2px solid #000;
+      box-shadow: 3px 3px 0 #000;
+    }
+    .demo-card, .grpo-rollout, .grpo-ref {
+      border-radius: 0 !important;
+      border: 3px solid #4b5394 !important;
+      background: #1d2246 !important;
+      box-shadow: 3px 3px 0 #000;
+    }
+    .demo-card b { color: var(--px-yellow); }
+    .demo-card i, .demo-card small { font-style: normal; }
+    .chat-msg { border-radius: 0 !important; border: 3px solid #000; box-shadow: 3px 3px 0 #000; }
+    
+    .doc-msg { background: var(--px-blue) !important; }
+    .pat-msg { background: #5b4a9e !important; }
+    .ner { border-radius: 0 !important; border-width: 2px !important; font-family: 'VT323', monospace !important; font-size: 1.05rem !important; font-weight: 400 !important; }
+    .waveform span { border-radius: 0 !important; width: 6px !important; animation-timing-function: steps(4) !important; }
+    .grpo-rollout { transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.2s ease !important; }
+    .grpo-rollout.win { border-color: var(--px-green) !important; box-shadow: 3px 3px 0 var(--px-green) !important; }
+    .grpo-rollout.lose { border-color: var(--px-red) !important; box-shadow: 3px 3px 0 var(--px-red) !important; }
+    .grpo-rollout .typing-dots span { border-radius: 0 !important; animation-timing-function: steps(2) !important; }
+        .grpo-rollout .score, .grpo-rollout .adv { white-space: nowrap; width: auto !important; min-width: 72px; }
+    .grpo-rollout .hyp .tag { font-family: 'VT323', monospace !important; font-size: 1rem !important; }
+    .demo-bridge { border-top: 4px dashed rgba(27,27,47,0.2) !important; }
+    .demo-bridge-arrow { color: var(--px-orange) !important; opacity: 1 !important; animation: bob 1s steps(2) infinite; }
+    @keyframes bob { 50% { transform: translateY(6px); } }
+
+    /* ---------- Footer ---------- */
+    .page-footer { border-top: 4px solid var(--px-ink); background: var(--px-paper-2); }
+    .powered-by { padding: 1rem 0; }
+
+    @media (max-width: 576px) {
+      .section-heading h1 { font-size: 0.9rem !important; }
+      .pixel-avatar { width: 200px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .demo-bridge-arrow, .typing-cursor { animation: none !important; }
+    }
+  </style>
 </head>
 <body  class="page-wrapper" data-wc-page-id="3976528693a0108357f4928017600865">
   <!-- <script src="./wowchemy-init.min.8f76bdc9e086322ed5147724ebba3d06.js"></script> -->
@@ -428,12 +664,6 @@
                       </a>
                     </td>
 
-                    <td>
-                      <a href="https://huggingface.co/qanastek/pos-french">
-                        <img src="./French-POS-Tagger.png" width="160">
-                      </a>
-                    </td>
-
                   </tr>
                 </thead>
               </table>
@@ -510,7 +740,7 @@
                 <ul class="ul-interests mb-0">
                   <li>Speech processing</li>
                   <li>Multi-modality (speech-text)</li>
-                  <li>Autoregressive modeling</li>
+                  <li>Post-training</li>
                   <li>Synthetic data generation</li>
                   <li>Healthcare domains</li>
                 </ul>
@@ -552,7 +782,7 @@
       <div class="container">
         <div class="row">
           <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
-            <h1 class="mb-0">Research Demo</h1>
+            <h1 class="mb-0">Synthetic Data Generation</h1>
             <p class="mt-2 text-muted" style="font-size: 0.95rem;">Interactive demonstration of End-to-End synthetic clinical data generation using <a href="https://github.com/idiap/sdialog" target="_blank" rel="noopener"><b>SDialog</b></a>.</p>
             
             <div class="mt-3 p-3 text-left" style="background: rgba(21, 101, 192, 0.05); border-left: 4px solid #1565c0; border-radius: 0 8px 8px 0; width: 100%;">
@@ -644,7 +874,7 @@
             <div class="demo-bridge-arrow mb-2"><i class="fa fa-long-arrow-down"></i></div>
             <p class="text-muted mb-0" style="font-size: 0.95rem; max-width: 720px; margin: 0 auto;">
               Synthetic dialogues become <b>synthetic speech</b> for training — but supervised fine-tuning overfits TTS artifacts.
-              <a href="https://better-call-grpo.github.io" target="_blank" rel="noopener"><b>GRPO</b></a> rewards whole transcripts instead of forcing token-by-token imitation.
+              <a href="https://better-call-grpo.github.io/" target="_blank" rel="noopener"><b>GRPO</b></a> rewards whole transcripts instead of forcing token-by-token imitation.
             </p>
           </div>
         </div>
@@ -655,7 +885,7 @@
             <h2 class="mb-0" style="font-size: 1.75rem;">How to Train Using Synthetic Data?</h2>
             <p class="mt-2 text-muted" style="font-size: 0.95rem;">
               One GRPO step on synthetic speech from the pipeline above — sample rollouts, score with <code style="font-size: 0.8rem;">r = 1 − WER</code>, reinforce the best hypothesis.
-              From our paper <a href="https://better-call-grpo.github.io" target="_blank" rel="noopener"><i>When Synthetic Speech Is All You Have: Better Call GRPO</i></a>.
+              From our paper <a href="https://better-call-grpo.github.io/" target="_blank" rel="noopener"><i>When Synthetic Speech Is All You Have: Better Call GRPO</i></a>.
             </p>
 
             <div class="mt-3 p-3 text-left" style="background: rgba(217, 119, 87, 0.06); border-left: 4px solid #d97757; border-radius: 0 8px 8px 0; width: 100%;">
@@ -770,10 +1000,9 @@
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Member of the <b>Speech & Audio Processing</b> group under the supervision of <b>Petr Motlicek</b>.</li>
-                        <li>Researching the transition <b>"From Bias to Fairness"</b> to build the next generation of <b>Trustworthy AI</b> systems.</li>
-                        <li>Developing robust speech and language models with a focus on ethical AI, bias mitigation, and transparency in large-scale multimodal systems.</li>
-                        <li><u>Focus Areas:</u> Trustworthy AI, Speech Processing, Multimodal LLMs, Fairness & Ethics.</li>
+                        <li>Part of the <b>Speech & Audio Processing</b> group under the supervision of <b>Petr Motlicek</b>.</li>
+                        <li>Advancing the speech capabilities of <b>multimodal large language models</b> through <b>post-training</b>, and developing <b>synthetic spoken data pipelines</b> for high-stakes applications (banking, healthcare and air traffic control).</li>
+                        <li><u>Publications:</u> 2x SLT, 1x Interspeech, 1x COLM and 1x EACL.</li>
                       </ul>
                     </div>
                   </div>
@@ -1046,6 +1275,108 @@
           <div class="col-12 col-lg-8">
 
             <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i><a href="https://beyond-the-benchmark.github.io/" target="_blank" rel="noopener">Beyond the Benchmark: Conditioning, Domains and Failure Modes of Qwen3-TTS.</a></i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                Séverin Baroudi, <b>Yanis Labrak</b>, Petr Motlicek, Hervé Bredin, Ricard Marxer (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  ArXiv 2026</b>
+                </a>
+                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://arxiv.org/abs/2610.23678" target="_blank" rel="noopener">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> Paper
+                </a>
+                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://beyond-the-benchmark.github.io/" target="_blank" rel="noopener">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> Project Page
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i>DialFork: Going Beyond Factuality to Evaluate Procedural Hallucination in Conversational Agents.</i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                Sergio Burdisso, Esaú Villatoro-Tello, Dairazalia Sánchez-Cortés, <b>Yanis Labrak</b>, Jordi Luque, et al. (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  ArXiv 2026</b>
+                </a>
+                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://arxiv.org/abs/2610.21561" target="_blank" rel="noopener">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> Paper
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i>Steering Speech-Language Models: Training-Free Task Specialization via Contrastive Activation Addition.</i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                Séverin Baroudi, <b>Yanis Labrak</b>, P. Melucci, Sergio Burdisso, Petr Motlicek, Hervé Bredin, et al. (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  ArXiv 2026</b>
+                </a>
+                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://arxiv.org/abs/2610.04683" target="_blank" rel="noopener">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> Paper
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i><a href="https://better-call-grpo.github.io/" target="_blank" rel="noopener">When Synthetic Speech Is All You Have: Better Call GRPO.</a></i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                Shashi Kumar, <b>Yanis Labrak</b>, H. Watawana, Sergio Burdisso, Esaú Villatoro-Tello, et al. (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  IEEE SLT 2026</b>
+                </a>
+                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://better-call-grpo.github.io/" target="_blank" rel="noopener">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> Project Page
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i>LF²AR: Accounting for Layerwise Dynamics to Improve Multimodal Adaptation of Language Models.</i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                Santiago Cuervo, Adel Moumen, <b>Yanis Labrak</b>, Sameer Khurana, Antoine Laurent, Mickaël Rouvier, et al. (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  COLM 2026</b>
+                </a>
+                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://hal.science/hal-05378288" target="_blank" rel="noopener">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> Paper
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i>How to Leverage Synthetic Speech for LLM-Based ASR Systems?</i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                <b>Yanis Labrak</b>, Dairazalia Sánchez-Cortés, Sergio Burdisso, Séverin Baroudi, Shashi Kumar, et al. (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  IEEE SLT 2026</b>
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
               <i>Generating Synthetic Doctor-Patient Conversations for Long-form Audio Summarization.</i>
               <br>
               <span class="article-metadata li-cite-author">
@@ -1054,10 +1385,7 @@
               <br>
               <p>
                 <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
-                  Under Review @ Interspeech 2026</b>
-                </a>
-                <a class="btn btn-outline-info btn-page-header btn-sm" rel="noopener">
-                  <i class="fa fa-external-link" aria-hidden="true"></i> Paper (Coming Soon)
+                  Interspeech 2026</b>
                 </a>
               </p>
             </div>
@@ -1071,10 +1399,24 @@
               <br>
               <p>
                 <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
-                  Under Review @ Interspeech 2026</b>
+                  ArXiv 2026</b>
                 </a>
                 <a class="btn btn-outline-info btn-page-header btn-sm" href="https://arxiv.org/abs/2603.06373" target="_blank" rel="noopener">
                   <i class="fa fa-external-link" aria-hidden="true"></i> Paper
+                </a>
+              </p>
+            </div>
+
+            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+              <i>TAL@Santé - TALN 2026.</i>
+              <br>
+              <span class="article-metadata li-cite-author">
+                Richard Dufour, <b>Yanis Labrak</b>, Emmanuel Morin, Aurélie Névéol, A. Sinha, L. Zanella, et al. (2026).
+              </span>
+              <br>
+              <p>
+                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
+                  Workshop @ TALN / CORIA 2026</b>
                 </a>
               </p>
             </div>
@@ -1106,24 +1448,6 @@
               <p>
                 <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
                   Ph.D. Thesis, Université d'Avignon</b>
-                </a>
-              </p>
-            </div>
-
-
-            <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
-              <i>Late Fusion and Multi-Level Fission Amplify Cross-Modal Transfer in Text-Speech LMs.</i>
-              <br>
-              <span class="article-metadata li-cite-author">
-                Santiago Cuervo, Adel Moumen, <b>Yanis Labrak</b>, Sameer Khurana, Antoine Laurent, et al. (2025).
-              </span>
-              <br>
-              <p>
-                <a class="btn btn-outline-primary btn-page-header btn-sm"><b>
-                  ArXiv 2025</b>
-                </a>
-                <a class="btn btn-outline-info btn-page-header btn-sm" href="https://hal.science/hal-05378288" target="_blank" rel="noopener">
-                  <i class="fa fa-external-link" aria-hidden="true"></i> Paper
                 </a>
               </p>
             </div>
@@ -1564,15 +1888,15 @@
             </div>
             <a href="https://github.com/qanastek/DeskMap" target="_blank" rel="noopener">
               <div class="img-hover-zoom">
-                <img src="./featured_hu2d3eda71ac866a5d40c36f3bbde85d4e_1279658_808x455_fill_q75_h2_lanczos_smart1.webp" height="455" width="808" class="article-banner" alt="DeskMap" loading="lazy">
+                <img src="./featured_hu2d3eda71ac866a5d40c36f3bbde85d4e_1279658_808x455_fill_q75_h2_lanczos_smart1.webp" height="455" width="808" class="article-banner" alt="DeskMap: Multimodal Route Planner" loading="lazy">
               </div>
             </a>
             <div class="section-subheading article-title mb-1 mt-3">
-              <a href="https://github.com/qanastek/DeskMap" target="_blank" rel="noopener">DeskMap</a>
+              <a href="https://github.com/qanastek/DeskMap" target="_blank" rel="noopener">DeskMap: Multimodal Route Planner</a>
             </div>
             <a href="https://github.com/qanastek/DeskMap" target="_blank" rel="noopener" class="summary-link">
               <div class="article-style">
-                <p>From scratch implementation of a desktop version of a map browser such as Google Maps, coded in Java using canvas rendering. On top of it, I implemented a A-Star variant to optimize user trip planning by considering multi-modality (bike, foot, car, real-time bus of Nantes metropole) and respectfull of the regulation (one-way, ...).</p>
+                <p>A Google Maps–style desktop map engine built from scratch in Java with custom canvas rendering. Its route planner uses a pathfinding algorithm (an A* variant) to find the best multimodal trip, combining walking, cycling, driving and real-time buses across the Nantes metropolitan area, while respecting traffic rules such as one-way streets.</p>
               </div>
             </a>
           </div>
@@ -1624,29 +1948,28 @@
   <!-- Custom Interactive Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. Scroll Reveal Animation
+      // 1. Scroll Reveal Animation (IntersectionObserver: no work on every scroll)
       const revealElements = document.querySelectorAll(".card, .pub-list-item, .stream-item, .section-heading, .view-card");
-      revealElements.forEach(el => el.classList.add("reveal"));
-
-      function reveal() {
-        const windowHeight = window.innerHeight;
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(en => {
+            if (en.isIntersecting) { en.target.classList.add("active"); io.unobserve(en.target); }
+          });
+        }, { rootMargin: "0px 0px -40px 0px" });
         revealElements.forEach(el => {
-          const elementTop = el.getBoundingClientRect().top;
-          const elementVisible = 50;
-          if (elementTop < windowHeight - elementVisible) {
-            el.classList.add("active");
-          }
+          // anything already on screen shows immediately, no fade on first paint
+          if (el.getBoundingClientRect().top < window.innerHeight) return;
+          el.classList.add("reveal");
+          io.observe(el);
         });
       }
-      window.addEventListener("scroll", reveal);
-      reveal(); // Trigger on load
 
       // 2. Typing Effect for Subtitle
       const titles = [
         "Postdoctoral Researcher", 
         "Focused on Speech & NLP",
         "Working on Multimodal LLMs", 
-        "Building Trustworthy AI"
+        "Post-training Speech LLMs"
       ];
       let titleIndex = 0;
       let charIndex = 0;
@@ -1923,5 +2246,6 @@
 
     });
   </script>
+
 </body>
 </html>
